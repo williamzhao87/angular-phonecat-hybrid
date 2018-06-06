@@ -23,4 +23,9 @@ platformBrowserDynamic().bootstrapModule(AppModule).then(platformRef => {
   const upgrade = platformRef.injector.get(UpgradeModule) as UpgradeModule;
   upgrade.bootstrap(document.documentElement, ['phonecatApp']);
 });
-// platformBrowserDynamic().bootstrapModule(AppModule).catch(err => console.log(err));
+// platformBrowserDynamic()
+//   .bootstrapModule(AppModule)
+//   .then(platformRef => {
+//     debugger;
+//   })
+//   .catch(err => console.log(err));

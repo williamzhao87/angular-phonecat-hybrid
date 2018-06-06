@@ -8,12 +8,13 @@ angular.module('phoneDetail').component('phoneDetail', {
     'Phone',
     function PhoneDetailController($routeParams, Phone) {
       var self = this;
-      self.phone = Phone.get({ phoneId: $routeParams.phoneId }, function(phone) {
-        self.setImage(phone.images[0]);
+      Phone.get($routeParams.phoneId).subscribe(data => {
+        this.phone = data;
+        this.setImage(data.images[0]);
       });
 
-      self.setImage = function setImage(imageUrl) {
-        self.mainImageUrl = imageUrl;
+      this.setImage = (imageUrl: string) => {
+        this.mainImageUrl = imageUrl;
       };
     }
   ]
