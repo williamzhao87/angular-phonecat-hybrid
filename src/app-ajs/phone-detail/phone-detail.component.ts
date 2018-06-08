@@ -7,14 +7,13 @@ angular.module('phoneDetail').component('phoneDetail', {
     '$routeParams',
     'Phone',
     function PhoneDetailController($routeParams, Phone) {
-      var self = this;
-      Phone.get($routeParams.phoneId).subscribe(data => {
-        this.phone = data;
-        this.setImage(data.images[0]);
+      const self = this;
+      self.phone = Phone.get({ phoneId: $routeParams.phoneId }, function(phone) {
+        self.setImage(phone.images[0]);
       });
 
-      this.setImage = (imageUrl: string) => {
-        this.mainImageUrl = imageUrl;
+      self.setImage = function setImage(imageUrl) {
+        self.mainImageUrl = imageUrl;
       };
     }
   ]

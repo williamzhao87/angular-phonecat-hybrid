@@ -1,12 +1,15 @@
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { UpgradeModule } from '@angular/upgrade/static';
+import { UpgradeModule, setAngularJSGlobal } from '@angular/upgrade/static';
 
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
 // Import these globally to bring in their @types
-import 'angular';
+import * as _angular_ from 'angular';
+declare global {
+  const angular: typeof _angular_;
+}
 import 'angular-resource';
 import 'angular-route';
 import 'angular-animate';
@@ -18,14 +21,9 @@ if (environment.production) {
   enableProdMode();
 }
 
+setAngularJSGlobal(angular);
 platformBrowserDynamic().bootstrapModule(AppModule).then(platformRef => {
   // Use the upgrade module to bootstrap the hybrid
   const upgrade = platformRef.injector.get(UpgradeModule) as UpgradeModule;
   upgrade.bootstrap(document.documentElement, ['phonecatApp']);
 });
-// platformBrowserDynamic()
-//   .bootstrapModule(AppModule)
-//   .then(platformRef => {
-//     debugger;
-//   })
-//   .catch(err => console.log(err));

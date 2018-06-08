@@ -6,9 +6,7 @@ angular.module('phoneList').component('phoneList', {
   controller: [
     'Phone',
     function PhoneListController(Phone) {
-      Phone.query().subscribe(phones => {
-        this.phones = phones;
-      });
+      this.phones = Phone.query();
       this.orderProp = 'age';
     }
   ]

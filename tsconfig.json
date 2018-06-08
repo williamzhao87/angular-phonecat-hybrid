@@ -16,6 +16,11 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@app/*" : ["src/app/*"],
+      "@app-ajs/*" : ["src/app-ajs/*"],
+      "@environments/*": ["src/environments/*"]
+    }
   }
 }
