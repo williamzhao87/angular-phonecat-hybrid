@@ -1,4 +1,14 @@
-# AngularPhonecatHybrid
+# Angular Phone Catalog Hybrid
+
+This is a Hybrid Angular 1.7 / 6 Application based on https://docs.angularjs.org/tutorial
+Demo: http://angular.github.io/angular-phonecat/step-14/app/#!/phones
+
+There are several versions:
+0.1 - Angular 6 Shell / AngularJS phonecat application bootstrapped inside
+0.2 - Angular 6 Shell + Phone service / Rest of application in AngularJS
+0.3 - Angular 6 Shell + Phone service + Phone List component + Phone Details component + Router / Rest of application in AngularJS
+
+In each scenario, you can find the original AngularJS src files co-existing with the Angular files (appended with '-2'), but only the Angular files are being used.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.7.
 
